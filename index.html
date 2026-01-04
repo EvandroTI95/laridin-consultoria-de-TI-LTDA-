@@ -287,26 +287,30 @@ footer { background:#001f3f; color:#00f0ff; text-align:center; padding:30px 20px
 <footer>
     <p>&copy; 2026 LARIDINHO LTDA. Todos os direitos reservados.</p>
 </footer>
+    
 <script>
 function enviarWhatsApp(e){
     e.preventDefault();
 
     const nome=document.getElementById("nome").value;
     const email=document.getElementById("email").value;
+    const Assunto=document.getElementById("Solicitação").value;
     const msg=document.getElementById("mensagem").value;
 
     const texto=
         "📩 *Contato pelo site*%0A%0A"+
         "👤 Nome: "+nome+"%0A"+
         "📧 Email: "+email+"%0A%0A"+
+        "📝 Solicitação:%0A"+msg;+
         "📝 Mensagem:%0A"+msg;
 
     window.open(
-        "https://wa.me/5521971885244?text="+texto,
+        "https://wa.me/5521996417195?text="+texto,
         "_blank"
     );
 }
 </script>
+    
 </body>
 
 </html>
