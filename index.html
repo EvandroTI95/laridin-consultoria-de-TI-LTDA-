@@ -132,21 +132,19 @@ p { text-align:center; max-width:800px; margin:auto; color:#d0f8ff; line-height:
 .testimonial-card span { font-weight:bold; color:#00f0ff; }
 
 /* ===== CONTACT FORM ===== */
-form {
-    background:#111421; padding:40px; border-radius:15px; max-width:600px;
-    margin:40px auto 0; box-shadow:0 0 40px #00f0ff33;
-}
-form label { display:block; margin-bottom:5px; font-weight:700; }
-form input, form textarea {
-    width:100%; padding:12px; margin-bottom:20px; border:1px solid #00f0ff33; border-radius:5px;
-    font-size:1em; background:#111421; color:#e0f8ff;
-}
-form input:focus, form textarea:focus { outline:none; border:1px solid #00ffff; box-shadow:0 0 15px #00ffff44; }
-form button {
-    background:#00f0ff; color:#0f111a; padding:12px 25px; border:none; border-radius:5px;
-    font-size:1em; cursor:pointer; transition:0.3s; box-shadow:0 0 10px #00f0ff55;
-}
-form button:hover { background:#00ffff; box-shadow:0 0 20px #00ffffaa; transform:scale(1.05); }
+<form action="enviar.php" method="post">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+
+    <label for="mensagem">Mensagem:</label>
+    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem..." required></textarea>
+
+    <button type="submit">Enviar</button>
+</form>
+
 
 /* ===== FOOTER ===== */
 footer { background:#001f3f; color:#00f0ff; text-align:center; padding:30px 20px; border-top:2px solid #00ffff44; }
@@ -258,19 +256,19 @@ footer { background:#001f3f; color:#00f0ff; text-align:center; padding:30px 20px
     </div>
 </section>
 
-<!-- CONTACT -->
+<!-- Formulário de Contato -->
+
 <section id="contato">
-    <h2>Contato</h2>
-    <p>Entre em contato e modernize a TI da sua empresa hoje mesmo:</p>
-    <form>
+    <h2>Entre em Contato</h2>
+    <form action="mailto:dinhodomurao2012@gmail.com" method="POST" enctype="multipart/form-data">
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+        <input type="text" id="nome" name="nome" required>
 
         <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+        <input type="email" id="email" name="email" required>
 
         <label for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem..." required></textarea>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
 
         <button type="submit">Enviar</button>
     </form>
@@ -283,5 +281,5 @@ footer { background:#001f3f; color:#00f0ff; text-align:center; padding:30px 20px
 </footer>
 
 </body>
-</html>
 
+</html>
