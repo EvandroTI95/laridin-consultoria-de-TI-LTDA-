@@ -1,32 +1,287 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title> Laridin LTDA | TST</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LARIDINHO LTDA - Consultoria em TI</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & FONT ===== */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Roboto', sans-serif; background:#0f111a; color:#e0e0e0; overflow-x:hidden; }
+
+/* ===== PARTICLES ANIMADAS ===== */
+body::before {
+    content:""; position:fixed; top:0; left:0; width:100%; height:100%;
+    background: radial-gradient(#00f0ff33 1px, transparent 1px) repeat;
+    background-size: 40px 40px;
+    animation: moveBackground 50s linear infinite;
+    z-index:-1;
+}
+@keyframes moveBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 1000px; }
+}
+
+/* ===== HEADER ===== */
+header {
+    background: linear-gradient(135deg, #001f3f, #003366);
+    color:#00f0ff;
+    text-align:center;
+    padding:100px 20px 60px;
+    position:relative;
+    overflow:hidden;
+    border-bottom:2px solid #00f0ff44;
+}
+
+header::before {
+    content:""; position:absolute; top:-50%; left:-50%; width:200%; height:200%;
+    background: radial-gradient(circle at center, rgba(0,255,255,0.05), transparent 70%);
+    animation: rotate 30s linear infinite;
+    z-index:0;
+}
+
+@keyframes rotate { 0% {transform:rotate(0deg);} 100% {transform:rotate(360deg);} }
+
+.logo { display:flex; align-items:center; justify-content:center; z-index:1; }
+
+.logo-icon {
+    width:100px; height:100px;
+    background: linear-gradient(135deg, #00f0ff, #00ffff);
+    border-radius:50%;
+    display:flex; justify-content:center; align-items:center;
+    font-family:'Orbitron', sans-serif;
+    font-weight:700; font-size:2.5em;
+    color:#0f111a;
+    margin-right:20px;
+    box-shadow:0 0 30px #00f0ff, 0 0 60px #00ffff33;
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse { 0%{box-shadow:0 0 20px #00f0ff, 0 0 40px #00ffff33;} 100%{box-shadow:0 0 50px #00f0ff, 0 0 80px #00ffff55;} }
+
+header h1 {
+    font-family:'Orbitron', sans-serif;
+    font-size:3em; color:#00f0ff;
+    text-shadow: 0 0 15px #00f0ffaa, 0 0 25px #00ffff55;
+    animation: glow 2s infinite alternate;
+}
+
+header p { font-size:1.2em; color:#b0f0ff; margin-top:10px; text-shadow:0 0 5px #00f0ff55; }
+
+/* ===== NAV ===== */
+nav { background-color:#111421; box-shadow:0 2px 10px #000; position:sticky; top:0; z-index:100; }
+nav ul { display:flex; justify-content:center; list-style:none; }
+nav ul li { margin:0 20px; }
+nav ul li a {
+    display:block; padding:15px 0; font-weight:700; color:#00f0ff; transition:0.3s;
+}
+nav ul li a:hover { color:#00ffffaa; transform: scale(1.1); }
+
+/* ===== MAIN ===== */
+main { max-width:1200px; margin:auto; padding:50px 20px; }
+
+/* ===== SECTIONS ===== */
+section { margin-bottom:80px; }
+h2 { font-family:'Orbitron', sans-serif; font-size:2.2em; color:#00f0ff; margin-bottom:30px; text-align:center; text-shadow:0 0 10px #00f0ff33; }
+p { text-align:center; max-width:800px; margin:auto; color:#d0f8ff; line-height:1.6em; }
+
+/* ===== SERVICES ===== */
+.services { display:flex; flex-wrap:wrap; gap:30px; justify-content:center; margin-top:40px; }
+
+.service-card {
+    background:#111421; border:1px solid #00f0ff33; flex:1 1 300px;
+    padding:30px; border-radius:15px; box-shadow:0 0 15px #00f0ff44, 0 0 30px #00f0ff22 inset;
+    transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+    position: relative;
+}
+.service-card::before {
+    content:""; position:absolute; top:0; left:0; width:100%; height:100%;
+    border-radius:15px;
+    box-shadow:0 0 15px #00f0ff55 inset;
+    opacity:0; transition:0.3s;
+}
+.service-card:hover::before { opacity:1; }
+
+.service-card:hover { transform: translateY(-15px) scale(1.03); border:1px solid #00ffffaa; box-shadow:0 0 50px #00f0ff88,0 0 60px #00ffff33 inset; }
+
+.service-card h3 { color:#00f0ff; margin-bottom:15px; text-shadow:0 0 10px #00ffff33; }
+.service-card p { text-align:left; }
+
+/* ===== BENEFITS ===== */
+.benefits { display:flex; flex-wrap:wrap; gap:30px; justify-content:center; margin-top:40px; }
+.benefit-card {
+    background:#111421; border:1px solid #00f0ff33; padding:25px; border-radius:15px;
+    flex:1 1 250px; text-align:center;
+    box-shadow:0 0 15px #00f0ff44;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.benefit-card:hover { transform: translateY(-10px); box-shadow:0 0 40px #00f0ff77; }
+.benefit-card h4 { color:#00f0ff; margin-bottom:10px; }
+.benefit-card p { color:#d0f8ff; line-height:1.5em; }
+
+/* ===== TESTIMONIALS ===== */
+.testimonials { display:flex; flex-wrap:wrap; gap:30px; justify-content:center; margin-top:40px; }
+.testimonial-card {
+    background:#111421; border:1px solid #00f0ff33; padding:30px; border-radius:15px;
+    flex:1 1 300px; text-align:center; box-shadow:0 0 15px #00f0ff44;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.testimonial-card:hover { transform: translateY(-10px); box-shadow:0 0 40px #00f0ff77; }
+.testimonial-card p { font-style:italic; margin-bottom:15px; color:#b0f8ff; }
+.testimonial-card span { font-weight:bold; color:#00f0ff; }
+
+/* ===== CONTACT FORM ===== */
+form {
+    background:#111421; padding:40px; border-radius:15px; max-width:600px;
+    margin:40px auto 0; box-shadow:0 0 40px #00f0ff33;
+}
+form label { display:block; margin-bottom:5px; font-weight:700; }
+form input, form textarea {
+    width:100%; padding:12px; margin-bottom:20px; border:1px solid #00f0ff33; border-radius:5px;
+    font-size:1em; background:#111421; color:#e0f8ff;
+}
+form input:focus, form textarea:focus { outline:none; border:1px solid #00ffff; box-shadow:0 0 15px #00ffff44; }
+form button {
+    background:#00f0ff; color:#0f111a; padding:12px 25px; border:none; border-radius:5px;
+    font-size:1em; cursor:pointer; transition:0.3s; box-shadow:0 0 10px #00f0ff55;
+}
+form button:hover { background:#00ffff; box-shadow:0 0 20px #00ffffaa; transform:scale(1.05); }
+
+/* ===== FOOTER ===== */
+footer { background:#001f3f; color:#00f0ff; text-align:center; padding:30px 20px; border-top:2px solid #00ffff44; }
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes glow { 0%{text-shadow:0 0 15px #00f0ffaa,0 0 25px #00ffff33;} 100%{text-shadow:0 0 25px #00f0ff,0 0 50px #00ffff66;} }
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+    nav ul { flex-direction:column; }
+    nav ul li { margin:0; }
+    .service-card, .benefit-card, .testimonial-card { flex:1 1 100%; }
+    header { padding:80px 20px; }
+    .logo { flex-direction:column; }
+    .logo-icon { margin-bottom:15px; margin-right:0; }
+}
+</style>
 </head>
 <body>
 
-    <main class="container">
-        <h1>🚧 Ambiente de Testes (TST)</h1>
+<header>
+    <div class="logo">
+        <div class="logo-icon">LD</div>
+        <h1>LARIDINHO LTDA</h1>
+    </div>
+    <p>Consultoria em Tecnologia da Informação</p>
+</header>
 
-        <p>
-            Este site está em <strong>ambiente de testes</strong>.
-            Nenhuma informação aqui deve ser considerada definitiva.
-        </p>
+<nav>
+    <ul>
+        <li><a href="#sobre">Sobre Nós</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#benefits">Por Que Escolher?</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+    </ul>
+</nav>
 
-        <div class="info">
-            <p><strong>Status:</strong> Em desenvolvimento</p>
-            <p><strong>Ambiente:</strong> TST</p>
-            <p><strong>Servidor:</strong> OK</p>
-            <p><strong>Data:</strong> <span id="data"></span></p>
+<main>
+
+<!-- SOBRE NÓS -->
+<section id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>A LARIDINHO LTDA oferece soluções completas em TI, desde infraestrutura, software até segurança da informação. Nossa missão é transformar tecnologia em crescimento para sua empresa.</p>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+    <h2>Nossos Serviços</h2>
+    <div class="services">
+        <div class="service-card">
+            <h3>Infraestrutura de TI</h3>
+            <p>Redes, servidores e ambientes escaláveis e seguros. Garantia de performance e continuidade operacional.</p>
         </div>
+        <div class="service-card">
+            <h3>Desenvolvimento de Software</h3>
+            <p>Aplicativos, sistemas e automações personalizadas para otimizar processos e aumentar produtividade.</p>
+        </div>
+        <div class="service-card">
+            <h3>Segurança da Informação</h3>
+            <p>Proteção de dados, firewalls, backups e auditorias que mantêm sua empresa segura contra ameaças.</p>
+        </div>
+        <div class="service-card">
+            <h3>Cloud & Virtualização</h3>
+            <p>Gerenciamento de nuvem e ambientes virtuais garantindo alta disponibilidade e escalabilidade.</p>
+        </div>
+    </div>
+</section>
 
-        <footer>
-            <p>© 2026 - Ambiente de Testes</p>
-        </footer>
-    </main>
+<!-- BENEFITS -->
+<section id="benefits">
+    <h2>Por Que Escolher a LARIDINHO?</h2>
+    <div class="benefits">
+        <div class="benefit-card">
+            <h4>Especialistas Qualificados</h4>
+            <p>Equipe de TI certificada e pronta para atender a qualquer desafio tecnológico.</p>
+        </div>
+        <div class="benefit-card">
+            <h4>Soluções Personalizadas</h4>
+            <p>Criamos soluções sob medida para o tamanho e necessidade da sua empresa.</p>
+        </div>
+        <div class="benefit-card">
+            <h4>Suporte Rápido</h4>
+            <p>Atendimento ágil e eficaz para manter sua empresa sempre operando.</p>
+        </div>
+        <div class="benefit-card">
+            <h4>Tecnologia de Ponta</h4>
+            <p>Aplicamos as melhores tecnologias para garantir inovação e competitividade.</p>
+        </div>
+    </div>
+</section>
 
-    <script src="js/script.js"></script>
+<!-- TESTIMONIALS -->
+<section id="depoimentos">
+    <h2>Depoimentos</h2>
+    <div class="testimonials">
+        <div class="testimonial-card">
+            <p>"A LARIDINHO LTDA revolucionou nossa infraestrutura de TI. Excelente equipe!"</p>
+            <span>- Empresa ABC</span>
+        </div>
+        <div class="testimonial-card">
+            <p>"Os sistemas que eles desenvolveram aumentaram nossa produtividade em 40%!"</p>
+            <span>- Empresa XYZ</span>
+        </div>
+        <div class="testimonial-card">
+            <p>"Suporte rápido e soluções confiáveis. Recomendo a todos que querem inovação."</p>
+            <span>- Startup 123</span>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contato">
+    <h2>Contato</h2>
+    <p>Entre em contato e modernize a TI da sua empresa hoje mesmo:</p>
+    <form>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem..." required></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 LARIDINHO LTDA. Todos os direitos reservados.</p>
+</footer>
+
 </body>
 </html>
+
