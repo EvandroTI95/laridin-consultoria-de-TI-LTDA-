@@ -292,16 +292,16 @@ footer { background:#001f3f; color:#00f0ff; text-align:center; padding:30px 20px
 function enviarWhatsApp(e){
     e.preventDefault();
 
-    const nome=document.getElementById("nome").value;
-    const email=document.getElementById("email").value;
-    const Assunto=document.getElementById("Solicitação").value;
-    const msg=document.getElementById("mensagem").value;
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const Assunto = document.getElementById("Assunto").value;
+    const msg = document.getElementById("mensagem").value;
 
-    const texto=
+    const texto =
         "📩 *Contato pelo site - Requisições de Serviços *%0A%0A"+
         "👤 Nome: "+nome+"%0A"+
         "📧 Email: "+email+"%0A%0A"+
-        "📝 Assunto: "+msg+"%0A%0A%0A"+
+        "📝 Assunto: "+Assunto+"%0A%0A"+
         "📝 Mensagem:%0A"+msg;
 
     window.open(
